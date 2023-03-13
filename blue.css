@@ -1,0 +1,11 @@
+:root{
+  --maincolor:lightblue;
+  --secondarycolor:rgb(92, 171, 198);
+ --maintxt:rgb(76, 74, 74);
+ --secondarytxt:#4b5156;
+ --bordercolor:rgb(160, 167, 169);
+ --theme-dot-border:#fff;
+   --backbg:rgba(145, 174, 248, 0.304);
+   --previewshadow:rgba(11, 33, 199, 0.285);     
+   --btncolor:rgb(67, 66, 66);
+}
