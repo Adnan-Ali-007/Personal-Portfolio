@@ -91,8 +91,8 @@ contactForm.addEventListener('submit', async (e) => {
     setLoadingState(true);
     
     try {
-        // Send email using Formspree (free service for static sites)
-        const response = await fetch('https://formspree.io/f/xpwagdvr', {
+        // Send email using our backend API
+        const response = await fetch('/api/contact', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -101,14 +101,16 @@ contactForm.addEventListener('submit', async (e) => {
         });
         
         if (response.ok) {
-            showModal('success', 'Thank you! Your message has been sent successfully. I\'ll get back to you soon!');
+            const result = await response.json();
+            showModal('success', result.message || 'Thank you! Your message has been sent successfully. I\'ll get back to you soon!');
             contactForm.reset();
         } else {
-            throw new Error('Failed to send message');
+            const errorResult = await response.json();
+            throw new Error(errorResult.message || 'Failed to send message');
         }
     } catch (error) {
         console.error('Error sending message:', error);
-        showModal('error', 'Sorry, there was an error sending your message. Please try again or contact me directly via email.');
+        showModal('error', error.message || 'Sorry, there was an error sending your message. Please try again or contact me directly via email.');
     } finally {
         setLoadingState(false);
     }
