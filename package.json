@@ -1,0 +1,12 @@
+{
+  "name": "project",
+  "version": "1.0.0",
+  "description": "created a portfolio website. Designed the layout using CSS Grids, used flexbox for alignment. Responsive changes theme through Javascript.. Live Link:https://adnan-ali-007.github.io/Personal-Portfolio/",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
